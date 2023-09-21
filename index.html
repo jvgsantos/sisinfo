@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Centralizado</title>
+    <!-- Inclua o CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos para o fundo degradê */
+        body {
+            background: linear-gradient(to bottom, #242323, #413d3c); /* Degradê de azul para vermelho */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            color: #fff; /* Cor do texto para melhor legibilidade no degradê */
+        }
+
+        /* Estilos para o iframe */
+        iframe {
+            width: 95%; /* 92% da largura da tela */
+            height: 85vh; /* 80% da altura da tela */
+            box-shadow: 5px 10px 25px rgba(24, 23, 23, 0.8); /* Adiciona uma sombra ao iframe */
+            margin-left: 3vw;
+            margin-right: 3vw;
+        }
+        .divFrame{
+            height: 90vh;
+        }
+        #menu{
+            height: 5vh;
+            margin-bottom: 15px;
+        }
+        /* Estilos para o botão de tela cheia */
+        #fullScreenButton {
+            float: right; /* Alinha o botão à direita */
+            margin-top: 10px; /* Adiciona um espaçamento superior ao botão */
+            background: linear-gradient(to left, #747272, #535353, #747272); /* Degradê no botão */
+            border: none; /* Remove a borda padrão do botão */
+            color: #fff; /* Cor do texto no botão */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="menu">
+            <div class="col">
+                <h1 class="text-center">BI Acidentes</h1> <!-- Título centralizado -->                
+            </div>            
+        </div>       
+    </div>
+    <iframe id="videoIframe" src="https://app.powerbi.com/view?r=eyJrIjoiNTBjZmFhN2YtMTA1My00ZDk0LWJkZDQtYzFmMGE0OTQyMDgzIiwidCI6ImI1MDIwNTIwLTczYmYtNGFlNy1hYjRkLTQ4OWI0NjYwYzIxNSJ9" frameborder="0" allowfullscreen>
+        Seu navegador não suporta iframes.
+    </iframe>
+    <!-- Inclua o JavaScript do Bootstrap (opcional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        const fullScreenButton = document.getElementById('fullScreenButton');
+        const videoIframe = document.getElementById('videoIframe');
+
+        fullScreenButton.addEventListener('click', () => {
+            if (videoIframe.requestFullscreen) {
+                videoIframe.requestFullscreen();
+            } else if (videoIframe.mozRequestFullScreen) {
+                videoIframe.mozRequestFullScreen();
+            } else if (videoIframe.webkitRequestFullscreen) {
+                videoIframe.webkitRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
